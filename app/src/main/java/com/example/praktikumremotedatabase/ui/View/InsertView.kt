@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.praktikumremotedatabase.ui.CustomWidget.CustomTopAppBar
 import com.example.praktikumremotedatabase.ui.Navigation.DestinasiNavigasi
+import com.example.praktikumremotedatabase.ui.viewModel.InsertUiEvent
 import com.example.praktikumremotedatabase.ui.viewModel.InsertUiState
 import com.example.praktikumremotedatabase.ui.viewModel.InsertViewModel
 import com.example.praktikumremotedatabase.ui.viewModel.PenyediaViewModel
@@ -70,7 +71,7 @@ fun EntryMhsScreen(
 @Composable
 fun EntryBody(
     insertUiState: InsertUiState,
-    onSiswaValueChange:(InsertUiState) -> Unit,
+    onSiswaValueChange:(InsertUiEvent) -> Unit,
     onSaveClick: () -> Unit,
     modifier: Modifier = Modifier
 ){
@@ -80,7 +81,7 @@ fun EntryBody(
     ){
         FormInput(
             insertUiEvent = insertUiState.insertUiEvent,
-            onSiswaValueChange = onSiswaValueChange,
+            onValueChange = onSiswaValueChange,
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -92,5 +93,18 @@ fun EntryBody(
             Text(text = "Simpan")
         }
     }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun FormInput(
+    insertUiEvent: InsertUiEvent,
+    modifier: Modifier = Modifier,
+    onValueChange: (InsertUiEvent) -> Unit = {},
+    enabled: Boolean =true
+){
+    Column(
+        modifier = modifier,
+    ) {  }
 }
 
