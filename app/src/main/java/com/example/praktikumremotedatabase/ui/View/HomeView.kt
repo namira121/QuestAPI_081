@@ -14,8 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.praktikumremotedatabase.model.Mahasiswa
 import com.example.praktikumremotedatabase.ui.CustomWidget.CustomTopAppBar
 import com.example.praktikumremotedatabase.ui.Navigation.DestinasiNavigasi
+import com.example.praktikumremotedatabase.ui.viewModel.HomeUiState
 import com.example.praktikumremotedatabase.ui.viewModel.HomeViewModel
 import com.example.praktikumremotedatabase.ui.viewModel.PenyediaViewModel
 
@@ -63,6 +65,19 @@ fun HomeScreen(
                 viewModel.getMhs()
             }
         )
+
+    }
+}
+
+@Composable
+fun HomeStatus(
+    homeUiState: HomeUiState,
+    retryAction: () -> Unit,
+    modifier: Modifier = Modifier,
+    onDetailClick: (String) -> Unit,
+    onDeleteClick: (Mahasiswa) -> Unit = {}
+){
+    when(homeUiState){
 
     }
 }
