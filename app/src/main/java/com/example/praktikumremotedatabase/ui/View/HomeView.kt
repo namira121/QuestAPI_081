@@ -93,8 +93,14 @@ fun HomeStatus(
             }else{
                 MhsLayout(
                     mahasiswa=homeUiState.mahasiswa, modifier=modifier.fillMaxWidth(),
-                    onDetailClick
+                    onDetailClick ={
+                        onDetailClick(it.nim)
+                    },
+                    onDeleteClick = {
+                        onDeleteClick(it)
+                    }
                 )
             }
+
     }
 }
