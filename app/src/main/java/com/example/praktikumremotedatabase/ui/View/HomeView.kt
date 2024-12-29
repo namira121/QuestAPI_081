@@ -1,9 +1,11 @@
 package com.example.praktikumremotedatabase.ui.View
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -17,8 +19,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.praktikumremotedatabase.R
 import com.example.praktikumremotedatabase.model.Mahasiswa
 import com.example.praktikumremotedatabase.ui.CustomWidget.CustomTopAppBar
 import com.example.praktikumremotedatabase.ui.Navigation.DestinasiNavigasi
@@ -103,4 +108,13 @@ fun HomeStatus(
             }
         is HomeUiState.Error -> OnError(retryAction, modifier= modifier.fillMaxSize())
     }
+}
+
+@Composable
+fun OnLoading(modifier: Modifier=Modifier){
+    Image(
+        modifier = modifier.size(100.dp),
+        painter = painterResource(R.drawable.loading_icon),
+        contentDescription = stringResource(R.string.loading)
+    )
 }
