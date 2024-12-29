@@ -1,6 +1,7 @@
 package com.example.praktikumremotedatabase.DependeciesInjection
 
 import com.example.praktikumremotedatabase.repository.MahasiswaRepository
+import com.example.praktikumremotedatabase.repository.NetworkMahasiswaRepository
 import com.example.praktikumremotedatabase.service.MahasiswaService
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
@@ -20,5 +21,9 @@ class MahasiswaContainer: AppContainer{
 
     private val mahasiswaService: MahasiswaService by lazy {
         retrofit.create(MahasiswaService::class.java)
+    }
+
+    override val mahasiswaRepository: MahasiswaRepository by lazy {
+        NetworkMahasiswaRepository(mahasiswaService)
     }
 }
