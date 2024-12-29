@@ -54,7 +54,15 @@ fun HomeScreen(
                 Icon(imageVector = Icons.Default.Add, contentDescription = "Add Mahasiswa")
             }
         }
-    ) {
+    ) {innerpadding->
+        HomeStatus(
+            homeUiState = viewModel.mhsUiState,
+            retryAction = { viewModel.getMhs()}, modifier = Modifier.padding(innerpadding),
+            onDetailClick = onDetailClick, onDeleteClick = {
+                viewModel.deleteMhs(it.nim)
+                viewModel.getMhs()
+            }
+        )
 
     }
 }
