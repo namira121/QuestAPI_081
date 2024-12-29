@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.praktikumremotedatabase.ui.View.DestinasiEntry
 import com.example.praktikumremotedatabase.ui.View.DestinasiHome
+import com.example.praktikumremotedatabase.ui.View.EntryMhsScreen
 import com.example.praktikumremotedatabase.ui.View.HomeScreen
 
 @Composable
@@ -25,6 +26,15 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
 
                 }
             )
+        }
+        composable(DestinasiEntry.route){
+            EntryMhsScreen(navigateBack = {
+                navController.navigate(DestinasiHome.route){
+                    popUpTo(DestinasiHome.route){
+                        inclusive=true
+                    }
+                }
+            })
         }
     }
 }
