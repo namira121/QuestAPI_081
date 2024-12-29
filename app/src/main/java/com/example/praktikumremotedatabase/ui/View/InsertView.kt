@@ -14,6 +14,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.praktikumremotedatabase.ui.CustomWidget.CustomTopAppBar
 import com.example.praktikumremotedatabase.ui.Navigation.DestinasiNavigasi
+import com.example.praktikumremotedatabase.ui.viewModel.InsertUiState
 import com.example.praktikumremotedatabase.ui.viewModel.InsertViewModel
 import com.example.praktikumremotedatabase.ui.viewModel.PenyediaViewModel
 import kotlinx.coroutines.launch
@@ -58,5 +59,15 @@ fun EntryMhsScreen(
                 .fillMaxWidth()
         )
     }
+}
+
+@Composable
+fun EntryBody(
+    insertUiState: InsertUiState,
+    onSiswaValueChange:(InsertUiState) -> Unit,
+    onSaveClick: () -> Unit,
+    modifier: Modifier = Modifier
+){
+
 }
 
