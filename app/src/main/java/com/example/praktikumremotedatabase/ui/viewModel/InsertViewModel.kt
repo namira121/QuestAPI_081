@@ -8,6 +8,7 @@ import com.example.praktikumremotedatabase.model.Mahasiswa
 import com.example.praktikumremotedatabase.repository.MahasiswaRepository
 import kotlinx.coroutines.launch
 
+
 class InsertViewModel (private val mhs: MahasiswaRepository): ViewModel(){
     var uiState by mutableStateOf(InsertUiState())
         private set
@@ -19,7 +20,7 @@ class InsertViewModel (private val mhs: MahasiswaRepository): ViewModel(){
     suspend fun insertMhs(){
         viewModelScope.launch {
             try{
-                mhs.insertMahasiswa(uiState.insertUiEvent.toMhas())
+                mhs.insertMahasiswa(uiState.insertUiEvent.toMhs())
             }catch (e:Exception){
                 e.printStackTrace()
             }
