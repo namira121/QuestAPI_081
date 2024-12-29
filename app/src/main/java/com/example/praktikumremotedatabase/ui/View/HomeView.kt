@@ -101,6 +101,6 @@ fun HomeStatus(
                     }
                 )
             }
-
+        is HomeUiState.Error -> OnError(retryAction, modifier= modifier.fillMaxSize())
     }
 }
