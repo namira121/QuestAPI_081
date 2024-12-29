@@ -2,6 +2,7 @@ package com.example.praktikumremotedatabase.ui.viewModel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.praktikumremotedatabase.model.Mahasiswa
@@ -13,7 +14,7 @@ class InsertViewModel (private val mhs: MahasiswaRepository): ViewModel(){
     var uiState by mutableStateOf(InsertUiState())
         private set
 
-    fun updateInsertMhsState(insertUiEvent.InsertUiEvent){
+    fun updateInsertMhsState(insertUiEvent:InsertUiEvent){
         uiState = InsertUiState(insertUiEvent = insertUiEvent)
     }
 
