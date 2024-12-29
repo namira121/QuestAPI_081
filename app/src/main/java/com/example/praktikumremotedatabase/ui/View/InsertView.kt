@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -17,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.praktikumremotedatabase.ui.CustomWidget.CustomTopAppBar
@@ -144,6 +146,15 @@ fun FormInput(
             value = insertUiEvent.kelas,
             onValueChange = {onValueChange(insertUiEvent.copy(kelas = it))},
             label = { Text("Kelas") },
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled,
+            singleLine = true
+        )
+        OutlinedTextField(
+            value = insertUiEvent.angkatan,
+            onValueChange = {onValueChange(insertUiEvent.copy(angkatan = it))},
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            label = { Text("Angkatan") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
             singleLine = true
