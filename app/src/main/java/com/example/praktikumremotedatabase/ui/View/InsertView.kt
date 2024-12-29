@@ -8,6 +8,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -158,6 +159,17 @@ fun FormInput(
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
             singleLine = true
+        )
+
+        if (enabled){
+            Text(
+                text = "Isi Semua Data!",
+                modifier = Modifier.padding(12.dp)
+            )
+        }
+        Divider(
+            thickness = 8.dp,
+            modifier = Modifier.padding(12.dp)
         )
     }
 }
