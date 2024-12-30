@@ -10,11 +10,12 @@ import com.example.praktikumremotedatabase.MahasiswaApplications
 
 object PenyediaViewModel{
     val Factory = viewModelFactory {
-        initializer { HomeViewModel(aplikasiMahasiswa().container.mahasiswaRepository)}
-        initializer { InsertViewModel(aplikasiMahasiswa().container.mahasiswaRepository)}
+        initializer { HomeViewModel(MahasiswaApplications().container.mahasiswaRepository)}
+        initializer { InsertViewModel(MahasiswaApplications().container.mahasiswaRepository)}
         initializer { DetailViewModel(createSavedStateHandle(),MahasiswaApplications().container.mahasiswaRepository)}
+        initializer { UpdateViewModel(createSavedStateHandle(), MahasiswaApplications().container.mahasiswaRepository) }
     }
-    fun CreationExtras.aplikasiMahasiswa():MahasiswaApplications =
+    fun CreationExtras.MahasiswaApplications():MahasiswaApplications =
         (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as MahasiswaApplications)
 }
 
