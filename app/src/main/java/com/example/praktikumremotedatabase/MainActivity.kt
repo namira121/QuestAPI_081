@@ -19,13 +19,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            PraktikumRemoteDatabaseTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MahasiswaApp(
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+            MahasiswaApp()
         }
     }
 }

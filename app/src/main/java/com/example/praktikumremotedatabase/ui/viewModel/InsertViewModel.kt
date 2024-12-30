@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.praktikumremotedatabase.model.Mahasiswa
+import com.example.praktikumremotedatabase.model.mahasiswa
 import com.example.praktikumremotedatabase.repository.MahasiswaRepository
 import kotlinx.coroutines.launch
 
@@ -42,7 +42,7 @@ data class InsertUiEvent(
     val angkatan: String = ""
 )
 
-fun InsertUiEvent.toMhs(): Mahasiswa = Mahasiswa(
+fun InsertUiEvent.toMhs(): mahasiswa = mahasiswa(
     nim = nim,
     nama = nama,
     alamat = alamat,
@@ -51,11 +51,11 @@ fun InsertUiEvent.toMhs(): Mahasiswa = Mahasiswa(
     angkatan = angkatan
 )
 
-fun Mahasiswa.toUiStateMhs(): InsertUiState = InsertUiState(
+fun mahasiswa.toUiStateMhs(): InsertUiState = InsertUiState(
     insertUiEvent = toInsertUiEvent()
 )
 
-fun Mahasiswa.toInsertUiEvent(): InsertUiEvent = InsertUiEvent(
+fun mahasiswa.toInsertUiEvent(): InsertUiEvent = InsertUiEvent(
     nim = nim,
     nama = nama,
     alamat = alamat,

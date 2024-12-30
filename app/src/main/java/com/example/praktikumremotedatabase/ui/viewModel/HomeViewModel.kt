@@ -7,13 +7,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.network.HttpException
-import com.example.praktikumremotedatabase.model.Mahasiswa
+import com.example.praktikumremotedatabase.model.mahasiswa
 import com.example.praktikumremotedatabase.repository.MahasiswaRepository
 import kotlinx.coroutines.launch
 import java.io.IOException
 
 sealed class HomeUiState{
-    data class Success(val mahasiswa: List<Mahasiswa>) : HomeUiState()
+    data class Success(val mahasiswa: List<mahasiswa>) : HomeUiState()
     object Error : HomeUiState()
     object Loading : HomeUiState()
 }

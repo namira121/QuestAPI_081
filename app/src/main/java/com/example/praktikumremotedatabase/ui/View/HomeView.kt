@@ -38,7 +38,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.praktikumremotedatabase.R
-import com.example.praktikumremotedatabase.model.Mahasiswa
+import com.example.praktikumremotedatabase.model.mahasiswa
 import com.example.praktikumremotedatabase.ui.CustomWidget.CustomTopAppBar
 import com.example.praktikumremotedatabase.ui.Navigation.DestinasiNavigasi
 import com.example.praktikumremotedatabase.ui.viewModel.HomeUiState
@@ -99,7 +99,7 @@ fun HomeStatus(
     retryAction: () -> Unit,
     modifier: Modifier = Modifier,
     onDetailClick: (String) -> Unit,
-    onDeleteClick: (Mahasiswa) -> Unit = {}
+    onDeleteClick: (mahasiswa) -> Unit = {}
 ){
     when(homeUiState){
         is HomeUiState.Loading -> OnLoading(modifier = modifier.fillMaxSize())
@@ -127,7 +127,7 @@ fun HomeStatus(
 @Composable
 fun OnLoading(modifier: Modifier=Modifier){
     Image(
-        modifier = modifier.size(100.dp),
+        modifier = modifier.size(200.dp),
         painter = painterResource(R.drawable.loading_icon),
         contentDescription = stringResource(R.string.loading)
     )
@@ -153,10 +153,10 @@ fun OnError(retryAction: () -> Unit, modifier: Modifier=Modifier){
 
 @Composable
 fun MhsLayout(
-    mahasiswa: List<Mahasiswa>,
+    mahasiswa: List<mahasiswa>,
     modifier: Modifier = Modifier,
-    onDetailClick: (Mahasiswa) -> Unit,
-    onDeleteClick: (Mahasiswa) -> Unit = {}
+    onDetailClick: (mahasiswa) -> Unit,
+    onDeleteClick: (mahasiswa) -> Unit = {}
 ){
     LazyColumn(
         modifier = modifier,
@@ -179,9 +179,9 @@ fun MhsLayout(
 
 @Composable
 fun MhsCard(
-    mahasiswa: Mahasiswa,
+    mahasiswa: mahasiswa,
     modifier: Modifier =Modifier,
-    onDeleteClick: (Mahasiswa) -> Unit = {}
+    onDeleteClick: (mahasiswa) -> Unit = {}
 ){
     Card(
         modifier = modifier,

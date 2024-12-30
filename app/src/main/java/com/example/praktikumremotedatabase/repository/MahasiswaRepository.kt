@@ -1,25 +1,25 @@
 package com.example.praktikumremotedatabase.repository
 
-import com.example.praktikumremotedatabase.model.Mahasiswa
+import com.example.praktikumremotedatabase.model.mahasiswa
 import com.example.praktikumremotedatabase.service.MahasiswaService
 import java.io.IOException
 
 interface MahasiswaRepository{
-    suspend fun getMahasiswa(): List<Mahasiswa>
-    suspend fun insertMahasiswa(mahasiswa: Mahasiswa)
-    suspend fun updateMahasiswa(nim:String, mahasiswa: Mahasiswa)
+    suspend fun getMahasiswa(): List<mahasiswa>
+    suspend fun insertMahasiswa(mahasiswa: mahasiswa)
+    suspend fun updateMahasiswa(nim:String, mahasiswa: mahasiswa)
     suspend fun deleteMahasiswa(nim: String)
-    suspend fun getMahasiswabyNIM(nim: String): Mahasiswa
+    suspend fun getMahasiswaByNIM(nim: String): mahasiswa
 }
 
 class NetworkMahasiswaRepository(
     private val MahasiswaApiService: MahasiswaService
 ):MahasiswaRepository{
-    override suspend fun insertMahasiswa(mahasiswa: Mahasiswa) {
+    override suspend fun insertMahasiswa(mahasiswa: mahasiswa) {
         MahasiswaApiService.insertMahasiswa(mahasiswa)
     }
 
-    override suspend fun updateMahasiswa(nim: String, mahasiswa: Mahasiswa) {
+    override suspend fun updateMahasiswa(nim: String, mahasiswa: mahasiswa) {
         MahasiswaApiService.updateMahasiswa(nim, mahasiswa)
     }
 
@@ -38,9 +38,9 @@ class NetworkMahasiswaRepository(
         }
     }
 
-    override suspend fun getMahasiswa(): List<Mahasiswa> = MahasiswaApiService.getMahasiswa()
+    override suspend fun getMahasiswa(): List<mahasiswa> = MahasiswaApiService.getMahasiswa()
 
-    override suspend fun getMahasiswabyNIM(nim: String): Mahasiswa {
+    override suspend fun getMahasiswaByNIM(nim: String): mahasiswa {
         return MahasiswaApiService.getMahasiswaByNIM(nim)
     }
 }
